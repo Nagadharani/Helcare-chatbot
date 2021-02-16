@@ -1,0 +1,84 @@
+<html>
+
+<head>
+<title>Helcare Anywhere</title>
+<script src="handlebars.js"></script>
+
+<script src="showdown.js"></script>
+<link rel="stylesheet" href="/css/styles.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body >
+<div class="wrapper">
+
+<div id="message_window">
+<div class="disconnected"></div>
+<div class="offline">
+                Offline! Reload to reconnect.
+            </div>
+
+<div class="powered_by">
+              Powered by Fabulous Fairies</a>
+            
+</div>
+<h1 style="background-color:sandybrown">Welcome to Helcare - A Chatbot</h1> 
+<section>
+                
+<div id="message_list">
+
+<div id="message_template">
+
+<div class="message {{message.type}}">{{#if message.isTyping}}
+<div class="typing-indicator">
+ 
+<span></span>
+<span></span>
+<span></span>
+</div>
+{{/if}}
+
+{{{message.html}}}
+
+{{#if message.open_link}}
+ 
+<a href="{{{message.open_link}}}" target="_blank" class="button_message">{{#if message.link_title}}{{message.link_title}}{{else}}{{message.open_link}}{{/if}}</a>
+     {{/if}}
+</div>
+ {{#message.files}}
+ 
+<div class="file_attachment">
+
+ 
+ 
+</div>
+   {{/message.files}}
+    
+</div>
+               
+</div>
+            
+</section>
+
+<div id="message_replies">
+
+</div>
+            
+
+   <footer>             
+<form onsubmit="Botkit.send(Botkit.input.value, event)">
+
+<input type="text" autocomplete="off" id="messenger_input" placeholder="Type here..." />
+ 
+<button type="submit">Send</button>
+</form>
+            
+</footer> 
+</div>
+        
+</div>
+        
+<script src="/client.js"></script>
+    
+</body>
+
+</html>
